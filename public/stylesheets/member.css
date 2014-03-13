@@ -1,0 +1,313 @@
+@CHARSET "UTF-8";
+
+@import url(extremecomponents.css);
+
+@import url(form.css);
+
+html {
+	overflow-y: auto !important;
+	*overflow-y: scroll;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	background: #FFFFFF;
+	color: #000000;
+	font-family:  "微软雅黑", "宋体",Arial, Verdana;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	line-height: 18px;
+}
+
+img {
+	vertical-align: middle;
+}
+
+a img {
+	border: 0;
+}
+
+td,th {
+	font-family:  "微软雅黑", "宋体",Arial, Verdana;
+}
+
+div {
+	font-size: 9pt;
+}
+
+a:link {
+	color: #666666;
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #666666;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+	color: #FF0000;
+}
+
+hr {
+	COLOR: #eee;
+	HEIGHT: 1px;
+}
+
+.redFont {
+	color: #D70C19;
+	font-weight: bold;
+}
+
+.greenFont {
+	color: #9B8B00;
+	font-weight: bold;
+}
+
+/*首页列表*/
+ul.homeList {
+	list-style-type: none;
+	padding: 6px;
+	margin: 0px;
+	text-align: left;
+}
+
+ul.homeList li {
+	background-image: url(../images/member/arrow02.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 5px;
+	padding-left: 18px;
+	margin-bottom: 4px;
+}
+/*消息栏*/
+div.notice,div.error {
+	border-radius: 4px 4px 4px 4px;
+	margin-bottom: 4px;
+	list-style: none;
+	padding: 4px;
+}
+
+div.notice {
+	border: 1px solid #fcefa1;
+	background-color: #fbf9ee;
+	color: #363636;
+}
+
+div.error {
+	border: 1px solid #cd0a0a;
+	background-color: #fef1ec;
+	color: #cd0a0a;
+}
+
+div.error ul {
+	margin: 0px;
+	background-image: url(../images/icons/error.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 1px;
+	padding-left: 20px;
+}
+
+div.error ul li {
+	list-style: none;
+}
+
+div.notice ul {
+	margin: 0px;
+	background-image: url(../images/icons/light-on.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 1px;
+	padding-left: 20px;
+}
+
+div.notice ul li {
+	list-style: none;
+}
+/*表单或详细资料表格*/
+span.form-tips {
+	font-style: italic;
+}
+
+table.detail {
+	font-weight: normal;
+	border-collapse: collapse;
+	position: relative;
+	margin: 0px;
+}
+
+table.detail th {
+	color: #333333;
+	text-align: right;
+	height: 20px;
+	padding: 4px;
+	white-space: nowrap;
+	font-weight: normal;
+	vertical-align: top;
+}
+
+table.detail th.required {
+	font-weight: bold;
+}
+
+table.detail td {
+	padding: 4px;
+}
+
+table.detail td.title {
+	padding: 4px;
+	white-space: nowrap;
+	font-weight: bold;
+	border-bottom: 1px dotted #d0d0d0;
+}
+
+table.detail td div.buttonBar {
+	margin-top: 10px;
+	border-top: 1px dotted #d0d0d0;
+	height: 40px;
+	text-align: center;
+	padding: 8px;
+}
+
+table.tb_product tr td img{ max-width:750px;}
+
+/*找回密码*/
+table.detail td.forget_password{
+	padding-top: 0px ;
+	padding-left: 10px;
+}
+
+table.detail td a{
+	text-decoration: underline;
+}
+
+table.detail td.forget_password dl dt{
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	margin-left: 16px;
+}
+
+table.detail td.forget_password dl dd{
+	font-size: 12px;
+	text-align: left;
+	margin-left: 16px;
+}
+
+/*首页*/
+.divPrize{
+	font-size:14px;color:black;
+	padding-right: 20px;
+}
+
+.userInfoTitle{
+	background-image: url(../images/member/member.png);
+	background-repeat: no-repeat;
+	padding-left: 36px;
+	font-weight: bold;
+	color: #000000;
+	padding-top: 8px;
+	border-bottom: 1px solid #000000;
+}
+
+.prizeInfoTitle{
+	background-image: url(../images/member/trophy_00.png);
+	background-repeat: no-repeat;
+	padding-left: 36px;
+	font-weight: bold;
+	color: #000000;
+	padding-top: 8px;
+	border-bottom: 1px solid #000000;
+}
+
+.prize1InfoTitle{
+	background-image: url(../images/member/trophy_01.png);
+	background-repeat: no-repeat;
+	padding-left: 36px;
+	font-weight: bold;
+	color: #000000;
+	padding-top: 8px;
+	border-bottom: 1px solid #000000;
+}
+
+.prize2InfoTitle{
+	background-image: url(../images/member/trophy_02.png);
+	background-repeat: no-repeat;
+	padding-left: 36px;
+	font-weight: bold;
+	color: #000000;
+	padding-top: 8px;
+	border-bottom: 1px solid #000000;
+}
+
+.prize3InfoTitle{
+	background-image: url(../images/member/trophy_03.png);
+	background-repeat: no-repeat;
+	padding-left: 36px;
+	font-weight: bold;
+	color: #000000;
+	padding-top: 8px;
+	border-bottom: 1px solid #000000;
+}
+
+/*首页列表表格*/
+.homeTable {
+	width: 100%;
+}
+
+.homeTable .leftTopCorner {
+	height: 36px;
+	width: 5px;
+}
+
+.homeTable .middleTopCorner {
+	/* background: url(../images/member/home_table_title_bg.jpg);
+	background-repeat: repeat-x; */
+	font-weight: bold;
+	padding-left: 10px;
+	border-bottom:1px solid #000000;
+	color:#000000;
+}
+
+.homeTable .rightTopCorner {
+	height: 36px;
+	width: 5px;
+}
+
+.homeTable .leftMiddleCorner {
+	/* border-left: #CCCCCC solid 1px; */
+}
+
+.homeTable .rightMiddleCorner {
+	/* border-right: #CCCCCC solid 1px; */
+}
+
+.homeTable .leftBottomCorner {
+	/* background: url(../images/member/home_table_bg.jpg);
+	background-position: left bottom; */
+	height: 5px;
+	width: 5px;
+}
+
+.homeTable .bottomMiddleCorner {
+	/* border-bottom: #CCCCCC solid 1px; */
+}
+
+.homeTable .rightBottomCorner {
+	/* background: url(../images/member/home_table_bg.jpg);
+	background-position: right bottom; */
+	height: 5px;
+	width: 5px;
+}
+
+.homeTable .title{
+	padding: 4px;
+	white-space: nowrap;
+	font-weight: normal;
+	border-bottom: 1px dotted #d0d0d0;
+}

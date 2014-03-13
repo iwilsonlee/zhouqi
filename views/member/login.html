@@ -1,0 +1,55 @@
+<% include ../header.html %>
+	
+
+<div id="con_login2" class="container">
+
+	<div class="frame">
+			<!-- Header -->
+			<div class="header">
+				<a href="" class="logo"></a>
+			</div>
+			<!-- Content -->
+			<div class="mainbox">
+				<div class="content">
+					<div align="center"><a href="/helpEmail" target="_blank" class="newTips">如何在我常用的邮箱里收取微营销的邮件？</a></div>
+				</div>
+			<!-- Right bar -->
+				<div class="rbar2">
+
+					<form id="loginForm" class="reg2" method="post"><div class="inbox">
+						      <input name="userCode" id="userCode" class="rsex" type="TEXT" size="45" value="会员编号:" onfocus="if (value ==&#39;会员编号:&#39; || value ==&#39;请输入您的会员编号&#39;){value =&#39;&#39;}this.style.color=&#39;#216951&#39;;" onblur="if (value ==&#39;&#39;){value=&#39;请输入您的会员编号&#39;}this.style.color=&#39;red&#39;;">
+						      <div id="icon_member" class="icon_input"></div>     
+						</div> 
+
+						<div class="inbox2">
+						      <input name="password" class="ip01" type="password" size="45" value="登陆密码:" onfocus="if (value ==&#39;登陆密码:&#39; || value ==&#39;请输入您的登陆密码&#39;){value =&#39;&#39;}this.style.color=&#39;#216951&#39;;" onblur="if (value ==&#39;&#39;){value=&#39;请输入您的登陆密码&#39;}this.style.color=&#39;red&#39;;">   
+						    <div id="icon_pas" class="icon_input"></div>     
+
+						</div>	
+
+						<div class="inbox">
+						      <input name="captchaCode" class="rsex" type="TEXT" size="25" value="验证码:" onfocus="if (value ==&#39;验证码:&#39; || value ==&#39;请输入验证码&#39;){value =&#39;&#39;}this.style.color=&#39;#216951&#39;;" onblur="if (value ==&#39;&#39;){value=&#39;请输入验证码&#39;}this.style.color=&#39;red&#39;;" style="color: red;">  
+						   	  <div id="icon_cercode" class="icon_input"></div>
+						   	  <div class="cercode">
+						   	  	<a href="javascript:refreshCaptchaImage('captchaImg');"><img id="captchaImg" src="/images/captcha.jpg" width="110" height="34" border="0"></a>
+						   	  </div>    
+						</div>
+							  
+						<div class="cls"></div>
+						<a href="https://www.foryou-v.com/member/forgetPwd.jhtml" class="cerinfo cboxElement" name="linkFindPwd">忘记密码？</a>
+    					<button type="submit" name="Submit" class="rlogin_btn"></button>
+					</form><form class="numform" name="recommendForm" id="recommendForm" method="post" action="/home">
+						<div class="inbox">
+						      <input name="recommendNo" id="recommendNo" class="rsex" type="TEXT" size="45" value="请输入您的销售顾问的编号:" onfocus="if (value ==&#39;请输入您的销售顾问的编号:&#39; || value==&#39;请输入您的销售顾问的编号&#39;){value =&#39;&#39;}this.style.color=&#39;#216951&#39;;" onblur="if (value ==&#39;&#39;){value=&#39;请输入您的销售顾问的编号&#39;}this.style.color=&#39;red&#39;;"> 
+						      <div id="icon_member" class="icon_input"></div>     
+						</div>
+    						<button type="submit" id="read_btn" class="rlogin_btn"></button>
+
+					</form>
+				</div>
+			</div>
+
+
+		</div>
+
+<% include ../footer.html %>

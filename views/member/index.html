@@ -1,0 +1,284 @@
+<% include header_member.html %>
+<%
+    Date.prototype.format = function(format) {
+        var o = {
+        "M+": this.getMonth() + 1,
+        // month
+        "d+": this.getDate(),
+        // day
+        "h+": this.getHours(),
+        // hour
+        "m+": this.getMinutes(),
+        // minute
+        "s+": this.getSeconds(),
+        // second
+        "q+": Math.floor((this.getMonth() + 3) / 3),
+        // quarter
+        "S": this.getMilliseconds()
+        // millisecond
+    };
+    if (/(y+)/.test(format) || /(Y+)/.test(format)) {
+        format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    }
+    for (var k in o) {
+        if (new RegExp("(" + k + ")").test(format)) {
+            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+        }
+    }
+    return format;
+    };
+%>
+<div class="container">
+		<!-- part_page -->
+		<div id="part_page" class="part">
+			<div class="nav_trail"></div>
+			<div class="frame">
+					<!-- Header -->
+					<div class="iheader">
+						<div class="headtop">
+							<div class="nav_head">
+                                <div class="nav_top">
+                                    <form action="./index_files/index.htm" method="get">
+										<%=member.name%>(<%=member.user_code%>) 您好,欢迎登入系统<a href="/member/logout">[ 退出 ]</a>
+										<select name="selLangCode" id="selLangCode" onchange="this.form.submit();">
+											<option value="en_US" title="/images/languages/us.gif">English-US</option>
+							                <option value="zh_CN" title="/images/languages/cn.gif" selected="">简体中文</option>
+							                <option value="zh_TW" title="/images/languages/tw.gif">繁體中文</option>
+							                </select>
+									</form>
+                                </div>
+							</div>
+						</div>
+						<div class="headbt">
+							<a href="" class="logo"></a>
+							<div class="nav">
+
+								<div id="menuBar">
+									<span id="myMenuID"><table summary="main menu" class="ThemeOfficeMenu" cellspacing="0"><tbody><tr><td class="ThemeOfficeMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,null,0,0)" onmousedown="cmItemMouseDown (this,1,null,0,0)" onmouseout="cmItemMouseOut (this,1,null,0,0)" onmouseup="cmItemMouseUp (this,1,null,0,0)"><span class="ThemeOfficeMainItemLeft"></span><span class="ThemeOfficeMainItemText">首页</span><span class="ThemeOfficeMainItemRight">&nbsp;</span></td><td class="ThemeOfficeMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,null,0,1)" onmousedown="cmItemMouseDown (this,1,null,0,1)" onmouseout="cmItemMouseOut (this,1,null,0,1)" onmouseup="cmItemMouseUp (this,1,null,0,1)"><span class="ThemeOfficeMainItemLeft"></span><span class="ThemeOfficeMainItemText">我们的系统</span><span class="ThemeOfficeMainItemRight">&nbsp;</span></td><td class="ThemeOfficeMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,null,0,2)" onmousedown="cmItemMouseDown (this,1,null,0,2)" onmouseout="cmItemMouseOut (this,1,null,0,2)" onmouseup="cmItemMouseUp (this,1,null,0,2)"><span class="ThemeOfficeMainItemLeft"></span><span class="ThemeOfficeMainItemText">我们的产品</span><span class="ThemeOfficeMainItemRight">&nbsp;</span></td><td class="ThemeOfficeMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,null,0,3)" onmousedown="cmItemMouseDown (this,1,null,0,3)" onmouseout="cmItemMouseOut (this,1,null,0,3)" onmouseup="cmItemMouseUp (this,1,null,0,3)"><span class="ThemeOfficeMainItemLeft"></span><span class="ThemeOfficeMainItemText">关于我们</span><span class="ThemeOfficeMainItemRight">&nbsp;</span></td><td class="ThemeOfficeMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,&#39;cmSubMenuID1&#39;,0,4)" onmousedown="cmItemMouseDown (this,1,&#39;cmSubMenuID1&#39;,0,4)" onmouseout="cmItemMouseOut (this,1,&#39;cmSubMenuID1&#39;,0,4)" onmouseup="cmItemMouseUp (this,1,&#39;cmSubMenuID1&#39;,0,4)"><span class="ThemeOfficeMainFolderLeft"></span><span class="ThemeOfficeMainFolderText">业务管理</span><span class="ThemeOfficeMainFolderRight">&nbsp;</span></td><td class="ThemeOfficeMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,&#39;cmSubMenuID2&#39;,0,9)" onmousedown="cmItemMouseDown (this,1,&#39;cmSubMenuID2&#39;,0,9)" onmouseout="cmItemMouseOut (this,1,&#39;cmSubMenuID2&#39;,0,9)" onmouseup="cmItemMouseUp (this,1,&#39;cmSubMenuID2&#39;,0,9)"><span class="ThemeOfficeMainFolderLeft"></span><span class="ThemeOfficeMainFolderText">信息中心</span><span class="ThemeOfficeMainFolderRight">&nbsp;</span></td><td class="ThemeOfficeMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,&#39;cmSubMenuID3&#39;,0,12)" onmousedown="cmItemMouseDown (this,1,&#39;cmSubMenuID3&#39;,0,12)" onmouseout="cmItemMouseOut (this,1,&#39;cmSubMenuID3&#39;,0,12)" onmouseup="cmItemMouseUp (this,1,&#39;cmSubMenuID3&#39;,0,12)"><span class="ThemeOfficeMainFolderLeft"></span><span class="ThemeOfficeMainFolderText">通讯管理</span><span class="ThemeOfficeMainFolderRight">&nbsp;</span></td><td class="ThemeOfficeMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,&#39;cmSubMenuID4&#39;,0,15)" onmousedown="cmItemMouseDown (this,1,&#39;cmSubMenuID4&#39;,0,15)" onmouseout="cmItemMouseOut (this,1,&#39;cmSubMenuID4&#39;,0,15)" onmouseup="cmItemMouseUp (this,1,&#39;cmSubMenuID4&#39;,0,15)"><span class="ThemeOfficeMainFolderLeft"></span><span class="ThemeOfficeMainFolderText">帐户管理</span><span class="ThemeOfficeMainFolderRight">&nbsp;</span></td><td class="ThemeOfficeMainItem" onmouseover="cmItemMouseOverOpenSub (this,1,&#39;cmSubMenuID5&#39;,0,23)" onmousedown="cmItemMouseDown (this,1,&#39;cmSubMenuID5&#39;,0,23)" onmouseout="cmItemMouseOut (this,1,&#39;cmSubMenuID5&#39;,0,23)" onmouseup="cmItemMouseUp (this,1,&#39;cmSubMenuID5&#39;,0,23)"><span class="ThemeOfficeMainFolderLeft"></span><span class="ThemeOfficeMainFolderText">个性修改</span><span class="ThemeOfficeMainFolderRight">&nbsp;</span></td></tr></tbody></table><div class="ThemeOfficeSubMenu" id="cmSubMenuID1" style="z-index: 1000;position: absolute; top: 0px; left: 0px;"><div class="ThemeOfficeSubMenuShadow"></div><table summary="sub menu" id="cmSubMenuID1Table" cellspacing="0" class="ThemeOfficeSubMenuTable"><tbody><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,5)" onmousedown="cmItemMouseDown (this,0,null,0,5)" onmouseout="cmItemMouseOut (this,0,null,0,5)" onmouseup="cmItemMouseUp (this,0,null,0,5)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">升级订购</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,6)" onmousedown="cmItemMouseDown (this,0,null,0,6)" onmouseout="cmItemMouseOut (this,0,null,0,6)" onmouseup="cmItemMouseUp (this,0,null,0,6)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">我的订单</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,7)" onmousedown="cmItemMouseDown (this,0,null,0,7)" onmouseout="cmItemMouseOut (this,0,null,0,7)" onmouseup="cmItemMouseUp (this,0,null,0,7)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">奖品兑换</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,8)" onmousedown="cmItemMouseDown (this,0,null,0,8)" onmouseout="cmItemMouseOut (this,0,null,0,8)" onmouseup="cmItemMouseUp (this,0,null,0,8)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">抽奖查询</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr></tbody></table></div><div class="ThemeOfficeSubMenu" id="cmSubMenuID2" style="z-index: 1000;position: absolute; top: 0px; left: 0px;"><div class="ThemeOfficeSubMenuShadow"></div><table summary="sub menu" id="cmSubMenuID2Table" cellspacing="0" class="ThemeOfficeSubMenuTable"><tbody><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,10)" onmousedown="cmItemMouseDown (this,0,null,0,10)" onmouseout="cmItemMouseOut (this,0,null,0,10)" onmouseup="cmItemMouseUp (this,0,null,0,10)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">公告查询</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,11)" onmousedown="cmItemMouseDown (this,0,null,0,11)" onmouseout="cmItemMouseOut (this,0,null,0,11)" onmouseup="cmItemMouseUp (this,0,null,0,11)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">信息管理</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr></tbody></table></div><div class="ThemeOfficeSubMenu" id="cmSubMenuID3" style="z-index: 1000;position: absolute; top: 0px; left: 0px;"><div class="ThemeOfficeSubMenuShadow"></div><table summary="sub menu" id="cmSubMenuID3Table" cellspacing="0" class="ThemeOfficeSubMenuTable"><tbody><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,13)" onmousedown="cmItemMouseDown (this,0,null,0,13)" onmouseout="cmItemMouseOut (this,0,null,0,13)" onmouseup="cmItemMouseUp (this,0,null,0,13)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">通讯簿管理</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,14)" onmousedown="cmItemMouseDown (this,0,null,0,14)" onmouseout="cmItemMouseOut (this,0,null,0,14)" onmouseup="cmItemMouseUp (this,0,null,0,14)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">朋友圈</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr></tbody></table></div><div class="ThemeOfficeSubMenu" id="cmSubMenuID4" style="z-index: 1000;position: absolute; top: 0px; left: 0px;"><div class="ThemeOfficeSubMenuShadow"></div><table summary="sub menu" id="cmSubMenuID4Table" cellspacing="0" class="ThemeOfficeSubMenuTable"><tbody><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,16)" onmousedown="cmItemMouseDown (this,0,null,0,16)" onmouseout="cmItemMouseOut (this,0,null,0,16)" onmouseup="cmItemMouseUp (this,0,null,0,16)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">电子账户充值</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,17)" onmousedown="cmItemMouseDown (this,0,null,0,17)" onmouseout="cmItemMouseOut (this,0,null,0,17)" onmouseup="cmItemMouseUp (this,0,null,0,17)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">提现申请</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,18)" onmousedown="cmItemMouseDown (this,0,null,0,18)" onmouseout="cmItemMouseOut (this,0,null,0,18)" onmouseup="cmItemMouseUp (this,0,null,0,18)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">提现申请单查询</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,19)" onmousedown="cmItemMouseDown (this,0,null,0,19)" onmouseout="cmItemMouseOut (this,0,null,0,19)" onmouseup="cmItemMouseUp (this,0,null,0,19)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">电子账户互转</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,20)" onmousedown="cmItemMouseDown (this,0,null,0,20)" onmouseout="cmItemMouseOut (this,0,null,0,20)" onmouseup="cmItemMouseUp (this,0,null,0,20)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">电子账户明细</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,21)" onmousedown="cmItemMouseDown (this,0,null,0,21)" onmouseout="cmItemMouseOut (this,0,null,0,21)" onmouseup="cmItemMouseUp (this,0,null,0,21)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">佣金账户明细</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,22)" onmousedown="cmItemMouseDown (this,0,null,0,22)" onmouseout="cmItemMouseOut (this,0,null,0,22)" onmouseup="cmItemMouseUp (this,0,null,0,22)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">佣金转电子账户</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr></tbody></table></div><div class="ThemeOfficeSubMenu" id="cmSubMenuID5" style="z-index: 1000;position: absolute; top: 0px; left: 0px;"><div class="ThemeOfficeSubMenuShadow"></div><table summary="sub menu" id="cmSubMenuID5Table" cellspacing="0" class="ThemeOfficeSubMenuTable"><tbody><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,24)" onmousedown="cmItemMouseDown (this,0,null,0,24)" onmouseout="cmItemMouseOut (this,0,null,0,24)" onmouseup="cmItemMouseUp (this,0,null,0,24)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">密码修改</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,25)" onmousedown="cmItemMouseDown (this,0,null,0,25)" onmouseout="cmItemMouseOut (this,0,null,0,25)" onmouseup="cmItemMouseUp (this,0,null,0,25)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">个人资料修改</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,26)" onmousedown="cmItemMouseDown (this,0,null,0,26)" onmouseout="cmItemMouseOut (this,0,null,0,26)" onmouseup="cmItemMouseUp (this,0,null,0,26)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">准会员配置</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr><tr class="ThemeOfficeMenuItem" onmouseover="cmItemMouseOverOpenSub (this,0,null,0,27)" onmousedown="cmItemMouseDown (this,0,null,0,27)" onmouseout="cmItemMouseOut (this,0,null,0,27)" onmouseup="cmItemMouseUp (this,0,null,0,27)"><td class="ThemeOfficeMenuItemLeft"></td><td class="ThemeOfficeMenuItemText">微邮箱帐户管理</td><td class="ThemeOfficeMenuItemRight"><img alt="" src="/images/member/blank.gif"></td></tr></tbody></table></div></span>
+									<script type="text/javascript">
+										cmDraw ('myMenuID', myMenu, 'hbr', cmThemeOffice);
+									</script>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+			</div>
+            <div id="page_nav">
+            	<div id="nav_pos">
+            		<a href="./index_files/index.htm">首页</a> &gt;&gt;
+					</div>
+            </div>
+            
+            <div id="page_content">         
+            <div id="cloud_left"> &nbsp;</div>	
+            <div id="cloud_right"> &nbsp;</div>	
+            	<div id="page_text">
+                
+<script type="text/javascript" src="/javascripts/ZeroClipboard.min.js"></script>
+<div id="" class="part">
+				<marquee scrollamount="3">欢迎来到富迪微营销! 【请会员做了升级单后，尽快完善个性修改中自己的会员信息，以免造成不必要的影响！】</marquee>
+			</div>	
+<table width="100%">
+	<tbody><tr>
+		<td valign="top">
+		
+			<table class="leftNavTable" border="0" cellspacing="0" cellpadding="0">
+				<tbody><tr>
+					<td class="userInfoTitle">会员信息</td>
+				</tr>
+				<tr>
+					<td>
+						<div style="font-size:18px;color:red;">
+							<%=member.name%><br>
+							
+								准会员
+							</div>
+						注册时间：<br><span class="greenFont"><%=member.create_time?(new Date(member.create_time)).format("yyyy-MM-dd hh:mm:ss"):null%></span><br>
+						上次登录：<br><%=(new Date(member.login_time)).format("yyyy-MM-dd hh:mm:ss")%><br>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<br>
+						<img src="/barcode" style="border:4px solid white;">
+						<br><a id="url_content" href="http://www.foryou-v.com/765350083" target="_blank" style="font-size:10px;"><%=myUrl%></a>
+						<br><button name="copy" id="d_clip_button" data-clipboard-target="url_content" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-copy"></span><span class="ui-button-text"><b>复制到剪贴板</b></span></button>
+					</td>
+				</tr>
+			</tbody></table>
+		</td>
+		
+		<td valign="top" width="600">
+			<table width="100%">
+				<tbody><tr>
+					<td class="prizeInfoTitle" colspan="3">获奖信息</td>
+					<td align="right"><a href="https://www.foryou-v.com/member/lotteryDrawQueryAll.jhtml">查看更多....</a></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="divPrize">
+							<br>
+							<div class="prize1InfoTitle">一等奖(5000元)<a href="https://www.foryou-v.com/member/index.jhtml#">详情</a></div>
+							<div id="demo" style="overflow:hidden;height:180px;">
+							<div id="demo1">
+								</div>
+							<div id="demo2"></div>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="divPrize">
+							<br>
+							<div class="prize2InfoTitle">二等奖(1000元)</div>
+							<div id="demoa" style="overflow:hidden;height:180px;">
+								<div id="demo1a">
+									</div>
+								<div id="demo2a"></div>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="divPrize">
+							<br>
+							<div class="prize3InfoTitle">三等奖(500元商品)</div>
+							<div id="demob" style="overflow:hidden;height:180px;">
+								<div id="demo1b">
+									<p align="center">V44***996&nbsp;富英</p>
+					                <p align="center">V68***038&nbsp;逸菲</p>
+					                <p align="center">V77***867&nbsp;秋梅</p>
+					                <p align="center">V26***690&nbsp;飞侠</p>
+					                <p align="center">V93***752&nbsp;啊梅</p>
+					                <p align="center">V53***305&nbsp;星光大道</p>
+					                <p align="center">V70***926&nbsp;旺.俊</p>
+					                <p align="center">V83***042&nbsp;旺.利军</p>
+					                <p align="center">V13***120&nbsp;美香</p>
+					                <p align="center">V13***120&nbsp;美香</p>
+					                <p align="center">V13***120&nbsp;美香</p>
+					                <p align="center">V11***098&nbsp;刘</p>
+					                <p align="center">V29***821&nbsp;徐建英</p>
+					                <p align="center">V29***821&nbsp;徐建英</p>
+					                <p align="center">V66***041&nbsp;徐雪寒</p>
+					                <p align="center">V51***047&nbsp;Tess</p>
+					                <p align="center">V97***293&nbsp;ls燕</p>
+					                </div>
+								<div id="demo2b">
+									<p align="center">V44***996&nbsp;富英</p>
+					                <p align="center">V68***038&nbsp;逸菲</p>
+					                <p align="center">V77***867&nbsp;秋梅</p>
+					                <p align="center">V26***690&nbsp;飞侠</p>
+					                <p align="center">V93***752&nbsp;啊梅</p>
+					                <p align="center">V53***305&nbsp;星光大道</p>
+					                <p align="center">V70***926&nbsp;旺.俊</p>
+					                <p align="center">V83***042&nbsp;旺.利军</p>
+					                <p align="center">V13***120&nbsp;美香</p>
+					                <p align="center">V13***120&nbsp;美香</p>
+					                <p align="center">V13***120&nbsp;美香</p>
+					                <p align="center">V11***098&nbsp;刘</p>
+					                <p align="center">V29***821&nbsp;徐建英</p>
+					                <p align="center">V29***821&nbsp;徐建英</p>
+					                <p align="center">V66***041&nbsp;徐雪寒</p>
+					                <p align="center">V51***047&nbsp;Tess</p>
+					                <p align="center">V97***293&nbsp;ls燕</p>
+					                </div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody></table>
+		
+			<table border="0" cellspacing="0" cellpadding="0" class="homeTable">
+				<tbody><tr>
+					<td class="leftTopCorner">&nbsp;</td>
+					<td class="middleTopCorner">
+						<table width="100%"><tbody><tr><td>公告</td><td align="right"><a href="https://www.foryou-v.com/member/ic_announce_list.jhtml">查看更多....</a></td></tr></tbody></table>
+					</td>
+					<td class="rightTopCorner">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="leftMiddleCorner">&nbsp;</td>
+						<td>
+							<ul class="homeList">
+							 
+								<li> 
+										<a href="https://www.foryou-v.com/member/ic_announce_detail.jhtml?announceId=321">关于富宝第三批手机发售通知-(2014-01-15)</a> 
+									 
+										</li>
+								</ul>
+						</td>
+					<td class="rightMiddleCorner">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="leftBottomCorner">&nbsp;</td>
+					<td class="bottomMiddleCorner"></td>
+					<td class="rightBottomCorner">&nbsp;</td>
+				</tr>
+			</tbody></table>
+			<br>
+            <!--
+            <table border="0" cellspacing="0" cellpadding="0" class="homeTable">
+                    <tbody><tr>
+                        <td class="leftTopCorner">&nbsp;</td>
+                        <td class="middleTopCorner">
+                            <table width="100%"><tbody><tr><td>登录记录</td><td align="right">&nbsp;</td></tr></tbody></table>
+                        </td>
+                        <td class="rightTopCorner">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="leftMiddleCorner">&nbsp;</td>
+                            <td>
+                                <span class="redFont">*若出现非会员本人登陆记录，请联系客服查询相关登陆情况</span>
+                                <table border="0" width="100%">
+                                    <tbody><tr>
+                                        <td class="title">登录时间</td>
+                                        <td class="title">IP</td>
+                                        <td class="title">参考地点</td>
+                                    </tr>
+                                    <tr>
+                                            <td>2014-03-07 16:05:10</td>
+                                            <td>
+                                                121.8.***.***</td>
+                                            <td>广东省广州市 电信</td>
+                                        </tr>
+                                    <tr>
+                                            <td>2014-03-04 16:44:20</td>
+                                            <td>
+                                                14.145.***.***</td>
+                                            <td>广东省广州市 电信</td>
+                                        </tr>
+                                    <tr>
+                                            <td>2014-03-04 16:31:08</td>
+                                            <td>
+                                                14.145.***.***</td>
+                                            <td>广东省广州市 电信</td>
+                                        </tr>
+                                    <tr>
+                                            <td>2014-03-04 16:26:36</td>
+                                            <td>
+                                                14.145.***.***</td>
+                                            <td>广东省广州市 电信</td>
+                                        </tr>
+                                    <tr>
+                                            <td>2014-03-04 16:20:16</td>
+                                            <td>
+                                                14.145.***.***</td>
+                                            <td>广东省广州市 电信</td>
+                                        </tr>
+                                    </tbody></table>
+                            </td>
+                        <td class="rightMiddleCorner">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="leftBottomCorner">&nbsp;</td>
+                        <td class="bottomMiddleCorner"></td>
+                        <td class="rightBottomCorner">&nbsp;</td>
+                    </tr>
+                </tbody></table>
+            -->
+				<br>
+			</td>
+	</tr>
+</tbody></table>
+
+<% include footer_member.html %>

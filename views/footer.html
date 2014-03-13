@@ -1,0 +1,92 @@
+<!-- footer -->
+<div id="regf" class="footer">
+    <div class="frame">
+        <div class="foot_infor">富迪公司 版权所有 粤ICP备11102901号</div>
+        <div class="copyright">一切解析权归富迪公司所有，客服020-66811678</div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("a[name='linkFindPwd']").colorbox({iframe:true, width:"550px", height:"366px",title:true});
+
+        var options = {
+            beforeSubmit:  validateForm,
+            success:       showResponse
+        };
+        $('#loginForm').ajaxForm(options);
+
+        var optionsRecommend = {
+            beforeSubmit:  validateRecommendForm,
+            success:       showResponseRecommend
+        };
+        $('#recommendForm').ajaxForm(optionsRecommend);
+    });
+
+    function showResponse(responseText, statusText, xhr, $form)  {
+        if(statusText=="success"){
+            if(responseText=="ok"){
+                window.location="index";
+            }else{
+                hideLoading();
+                alert(responseText);
+                refreshCaptchaImage("captchaImg");
+            }
+        }else{
+            hideLoading();
+            //$('#errorMsg').innerHTML("mi.error.retry ");
+            refreshCaptchaImage("captchaImg");
+        }
+    }
+
+    function showResponseRecommend(responseText, statusText, xhr, $form)  {
+        if(statusText=="success"){
+            if(responseText=="ok"){
+                window.top.location="/home/"+$('#recommendNo').val();
+            }else{
+                alert(responseText);
+            }
+        }else{
+        }
+    }
+    function validateForm(formData, jqForm, options) {
+        //其它验证
+        if(jqForm[0].userCode.value=="" || jqForm[0].userCode.value=="会员编号:" || jqForm[0].userCode.value=="请输入您的会员编号"){
+            alert("请输入用户帐号,用户帐号为包含一个以上的字母、数字的字符串,长度不超过20字符(10个中文)");
+            jqForm[0].userCode.focus();
+            return false;
+        }
+        if(jqForm[0].password.value=="" || jqForm[0].password.value=="登陆密码:" || jqForm[0].password.value=="请输入您的登陆密码"){
+            alert("请输入登录密码");
+            jqForm[0].password.focus();
+            return false;
+        }
+        if(jqForm[0].captchaCode.value=="" || jqForm[0].captchaCode.value=="验证码:" || jqForm[0].captchaCode.value=="请输入验证码"){
+            alert("验证码不能为空");
+            jqForm[0].captchaCode.focus();
+            return false;
+        }
+        //其它验证
+        showLoading();
+        return true;
+    }
+
+    function validateRecommendForm(formData, jqForm, options){
+        //其它验证
+        if(jqForm[0].recommendNo.value=="" || jqForm[0].recommendNo.value=="请输入您的销售顾问的编号:" || jqForm[0].recommendNo.value=="请输入您的销售顾问的编号"){
+            alert("请输入您正确的销售顾问的编号");
+            theForm.jqForm[0].focus();
+            return false;
+        }
+        return true;
+    }
+
+    function isEmpty(str){
+        if(/^\s*$/g.test(str)){
+            return true;
+        }
+        return false;
+    }
+</script></body>
+</html>
