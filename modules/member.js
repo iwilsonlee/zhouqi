@@ -25,37 +25,42 @@ function GetRandomNum(Min,Max)
     return(Min + Math.round(Rand * Range));
 }
 
-function aa(uc){
-    var uc2 = null
-    mysql.connection(function(connection){
-        connection.query(
-            'SELECT * FROM members where user_code = ?', uc,
-            function check(err, results, fields) {
-                if (err) {
-                    throw err;
-                }
-                connection.end();
-                if(!results || results.length == 0){
-                    uc2 = uc;
-                }
-
-            }
-        );
-    });
+function check(err, member,uc, callback){
+    if(err) throw err;
+    if(!member){
+        callback(uc);
+    }else{
+        uc = GetRandomNum(100,100000000);
+        Member.get1(uc,check, callback);
+    }
 }
 
 Member.get_user_code = function (callback){
     var uc = GetRandomNum(100,100000000);
-    var uc2 = null;
-    Member.get(uc, function(err, member, fields){
-        if(err) throw err;
-        if(!member){
-            uc2=uc;
-        }
-        callback(uc2);
-    })
+    Member.get1(uc, check, callback);
 
 };
+
+Member.get1 = function (user_code, callback, callback2){
+    //var connection =  mysql.connection;
+    mysql.connection(function(connection){
+        connection.query(
+            'SELECT * FROM members where user_code = ?', user_code,
+            function selectCb(err, results, fields) {
+                if (err) {
+                    throw err;
+                }
+                connection.end();
+                var member = null;
+                if(results && results.length > 0){
+                    member = new Member(results[0]);
+                }
+                callback(err,member, user_code,callback2);
+            }
+        );
+    });
+};
+
 
 Member.get = function (user_code, callback){
     //var connection =  mysql.connection;
